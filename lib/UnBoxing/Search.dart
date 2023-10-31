@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Search extends StatelessWidget {
+void main() => runApp(Search1());
+
+class Search1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

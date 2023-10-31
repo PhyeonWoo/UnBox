@@ -1,139 +1,9 @@
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
-//
-// import '../train.dart';
-//
-// void main() => runApp(MyApp());
-//
-// class MyApp extends StatelessWidget {
-//    @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       theme: ThemeData(),
-//       home: MyHomePage2(),
-//     );
-//   }
-// }
-//
-// class MyHomePage2 extends StatefulWidget {
-//   @override
-//   _MyHomePageState createState() => _MyHomePageState();
-// }
-//
-// class _MyHomePageState extends State<MyHomePage2> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Container(
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.end,
-//           children: <Widget>[
-//
-//             Row(
-//               children: <Widget>[
-//                 Square1(),
-//               ],
-//             ),
-//
-//             Row(
-//               crossAxisAlignment: CrossAxisAlignment.end,
-//               children: <Widget>[
-//                 Square2(),
-//                 Square3(),
-//               ],
-//             ),
-//
-//             Row(
-//               children: <Widget>[
-//                 Square4(),
-//               ],
-//             ),
-//
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-//
-// class Square1 extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: 411,
-//       height: 150,
-//       margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-//
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.circular(10),
-//         color: Colors.grey,
-//         border: Border.all(),
-//       ),
-//       child: Text("Test1",style: TextStyle(fontSize: 20),),
-//     );
-//   }
-// }
-//
-// class Square2 extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: 200,
-//       height: 200,
-//       margin: EdgeInsets.fromLTRB(0,10,0,0),
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.circular(10),
-//         color: Colors.grey,
-//         border: Border.all(),
-//       ),
-//       child: Text("Test2",style: TextStyle(fontSize: 20),),
-//     );
-//   }
-// }
-//
-// class Square3 extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: 200,
-//       height: 200,
-//       margin: EdgeInsets.fromLTRB(10,10,0, 0),
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.circular(10),
-//         color: Colors.grey,
-//         border: Border.all(),
-//       ),
-//       child: Text("Test3",style: TextStyle(fontSize: 20),),
-//     );
-//   }
-// }
-//
-// class Square4 extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: 411,
-//       height: 150,
-//       margin: EdgeInsets.fromLTRB(0,10,0, 0),
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.circular(10),
-//         color: Colors.grey,
-//         border: Border.all(),
-//       ),
-//       child: Text("Test4",style: TextStyle(fontSize: 20),),
-//     );
-//   }
-// }
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//
-// import '../train.dart';
+import 'second.dart';
+import 'button.dart';
+void main() => runApp(HomeContainer1());
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
+class HomeContainer1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -150,65 +20,30 @@ class MyHomePage2 extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage2> {
   int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              label: 'Favorites',
-              icon: Icon(Icons.favorite),
-            ),
-            BottomNavigationBarItem(
-              label: "Music",
-              icon: Icon(Icons.music_note),
-            ),
-            BottomNavigationBarItem(
-              label: 'Places',
-              icon: Icon(Icons.location_on),
-            ),
-            BottomNavigationBarItem(
-              label: 'News',
-              icon: Icon(Icons.library_books),
-            ),
-          ],
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _currentIndex,
-          backgroundColor: Color(0xFF6200EE),
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white.withOpacity(.6),
-          selectedFontSize: 14,
-          unselectedFontSize: 14,
-          onTap: (value) {
-            setState(() => _currentIndex = value);
-          },
-        ),
         body: Container(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-
               Row(
                 children: <Widget>[
                   Square1(),
+                  SizedBox(width: 10),  // Added spacing
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Square3(),
+                      Square2(),
+                    ],
+                  ),
                 ],
               ),
-
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Square2(),
-                  Square3(),
-                ],
-              ),
-
-              Row(
-                children: <Widget>[
-                  Square4(),
-                ],
-              ),
-
+              SizedBox(height: 10),  // Added spacing
+              Square4(),  // New widget
             ],
           ),
         ),
@@ -221,16 +56,15 @@ class Square1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 411,
-      height: 150,
-      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-
+      width: 200,
+      height: 300,
+      margin: EdgeInsets.fromLTRB(10, 10, 0, 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.grey,
+        color: Colors.orange,
         border: Border.all(),
       ),
-      child: Text("Test1",style: TextStyle(fontSize: 20),),
+      child: Center(child: Text("Test1", style: TextStyle(fontSize: 20))),
     );
   }
 }
@@ -239,32 +73,57 @@ class Square2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      height: 200,
-      margin: EdgeInsets.fromLTRB(0,10,0,0),
+      width: 180,
+      height: 145,
+      margin: EdgeInsets.fromLTRB(0, 10, 10, 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.grey,
+        color: Colors.white30,
         border: Border.all(),
       ),
-      child: Text("Test2",style: TextStyle(fontSize: 20),),
+      child: Center(child: Text("Test2", style: TextStyle(fontSize: 20))),
     );
   }
 }
 
+// class Square3 extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       width: 180,
+//       height: 145,
+//       margin: EdgeInsets.fromLTRB(0, 10, 10, 0),
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.circular(10),
+//         color: Colors.yellow,
+//         border: Border.all(),
+//       ),
+//       child: Center(child: Text("Test3", style: TextStyle(fontSize: 20))),
+//     );
+//   }
+// }
 class Square3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      height: 200,
-      margin: EdgeInsets.fromLTRB(10,10,0, 0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.grey,
-        border: Border.all(),
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => second()),
+        );
+
+      },
+      child: new Container(
+        width: 180,
+        height: 145,
+        margin: EdgeInsets.fromLTRB(0,10,10,0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.yellow,
+          border: Border.all(),
+        ),
+        child: Center(child: Text("Test3",style: TextStyle(fontSize: 20))),
       ),
-      child: Text("Test3",style: TextStyle(fontSize: 20),),
     );
   }
 }
@@ -275,13 +134,13 @@ class Square4 extends StatelessWidget {
     return Container(
       width: 411,
       height: 150,
-      margin: EdgeInsets.fromLTRB(0,10,0, 0),
+      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.grey,
+        color: Colors.blueGrey,
         border: Border.all(),
       ),
-      child: Text("Test4",style: TextStyle(fontSize: 20),),
+      child: Center(child: Text("Test4", style: TextStyle(fontSize: 20))),
     );
   }
 }

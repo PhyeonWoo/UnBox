@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import "package:unboxing/UnBoxing/Container.dart";
+import 'package:unboxing/UnBoxing/Search.dart';
+import 'package:unboxing/UnBoxing/button.dart';
 
 
+void main() => runApp(main_home());
 
-void main() => runApp(app());
-
-class app extends StatelessWidget {
-  const app({Key? key}) : super(key: key);
+class main_home extends StatelessWidget {
+  const main_home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
       home: Scaffold(
+        bottomNavigationBar: app123123(),
         // bottomNavigationBar: MyHomePage(),
         body: MyApp(),
         appBar: AppBar(
-
           // 상단바
           backgroundColor: Colors.white,
           elevation: 1,
@@ -24,6 +25,8 @@ class app extends StatelessWidget {
           title: Text("UnBoxing"),
           centerTitle: true,
           titleTextStyle: TextStyle(color: Colors.black,fontSize: 20),
+
+
 
           // 좌측 위젯버튼
           leading: IconButton(
@@ -35,10 +38,10 @@ class app extends StatelessWidget {
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.grade),
-              onPressed: (){},
+              onPressed: (){
+              },
             ),
           ],
-
 
         ),
       ),
